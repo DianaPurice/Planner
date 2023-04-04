@@ -29,8 +29,7 @@ function currentHour() {
 function checkHour() {
   var hourNow = currentHour();
   var hourCheck = hourNow.slice(0, 2);
-  console.log(hourCheck);
-  if (hourCheck === timeslot1.attr("id")) {
+  if (hourCheck === timeslot2.attr("id")) {
     timeslot1.addClass("present");
   } else if (hourCheck === timeslot2.attr("id")) {
     timeslot2.addClass("present");
