@@ -1,14 +1,14 @@
 // existing elements
 var currentDayEl = $("#currentDay");
-var timeslot1 = $("#9am");
-var timeslot2 = $("#10am");
-var timeslot2 = $("#11am");
-var timeslot3 = $("#12am");
-var timeslot4 = $("#1pm");
-var timeslot5 = $("#2pm");
-var timeslot6 = $("#3pm");
-var timeslot7 = $("#4pm");
-var timeslot8 = $("#5pm");
+var timeslot1 = $("#09");
+var timeslot2 = $("#10");
+var timeslot2 = $("#11");
+var timeslot3 = $("#12");
+var timeslot4 = $("#13");
+var timeslot5 = $("#14");
+var timeslot6 = $("#15");
+var timeslot7 = $("#16");
+var timeslot8 = $("#17");
 
 // display current date
 function currentDay() {
@@ -19,21 +19,19 @@ function currentDay() {
 currentDay();
 
 function currentHour() {
-  var hourNow = moment().format("h:mm:ss a");
+  var hourNow = moment().format("HH:mm");
   return hourNow;
 }
 
 function checkHour() {
   var hourNow = currentHour();
-  var hourLenght = hourNow.lenght;
-  console.log(typeof hourNow.length);
-  console.log(hourNow);
-  console.log(hourNow);
-  if (hourLenght === 11) {
-    console.log("here");
-  } else {
-    console.log("hereee");
+  var hourCheck = hourNow.slice(0, 2);
+  console.log(timeslot1);
+  console.log(hourCheck);
+  if (hourCheck === timeslot1.attr("id")) {
+    timeslot1.addClass("present");
+  } else if (hourCheck === timeslot1.attr("id")) {
+    timeslot2.addClass("present");
   }
-  console.log(hourNow);
 }
 checkHour();
