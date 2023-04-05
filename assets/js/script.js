@@ -36,9 +36,10 @@ function currentHour() {
   return hourNow;
 }
 
-function checkHour() {
+function presentHour() {
   var hourNow = currentHour();
   var hourCheck = hourNow.slice(0, 2);
+
   if (hourCheck === timeslot1.attr("id")) {
     timeslot1.addClass("present");
   } else if (hourCheck === timeslot2.attr("id")) {
@@ -57,7 +58,13 @@ function checkHour() {
     timeslot8.addClass("present");
   } else if (hourCheck === timeslot9.attr("id")) {
     timeslot9.addClass("present");
-  } else if (late.includes(`-${hourCheck}`)) {
+  }
+}
+
+function pastHour() {
+  var hourNow = currentHour();
+  var hourCheck = hourNow.slice(0, 2);
+  if (late.includes(`-${hourCheck}`)) {
     timeslot1.addClass("past");
     timeslot2.addClass("past");
     timeslot3.addClass("past");
@@ -67,7 +74,12 @@ function checkHour() {
     timeslot7.addClass("past");
     timeslot8.addClass("past");
     timeslot9.addClass("past");
-  } else if (early.includes(`-${hourCheck}`)) {
+  }
+}
+function futureHour() {
+  var hourNow = currentHour();
+  var hourCheck = hourNow.slice(0, 2);
+  if (early.includes(`-${hourCheck}`)) {
     timeslot1.addClass("future");
     timeslot2.addClass("future");
     timeslot3.addClass("future");
@@ -79,7 +91,9 @@ function checkHour() {
     timeslot9.addClass("future");
   }
 }
-checkHour();
+pastHour();
+presentHour();
+futureHour();
 
 function sendData() {
   button1.click(console.log("here"));
