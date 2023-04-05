@@ -9,6 +9,15 @@ var timeslot6 = $("#14");
 var timeslot7 = $("#15");
 var timeslot8 = $("#16");
 var timeslot9 = $("#17");
+var button1 = $("#btn9");
+var button2 = $("#btn10");
+var button3 = $("#btn11");
+var button4 = $("#btn12");
+var button5 = $("#btn13");
+var button6 = $("#btn14");
+var button7 = $("#btn15");
+var button8 = $("#btn16");
+var button9 = $("#btn17");
 
 // time variables
 var early = "080706050403020100";
@@ -70,3 +79,38 @@ function checkHour() {
   }
 }
 checkHour();
+
+function sendData() {
+  button1.click(console.log("here"));
+}
+// sendData();
+
+$(document).ready(function () {
+  $("#btn9").click(function () {
+    console.log("here");
+  });
+  $("#btn10").click(function () {
+    console.log("here2");
+  });
+  $("#btn11").click(function () {
+    console.log("here3");
+  });
+  $("#btn12").click(function () {
+    console.log("here4");
+  });
+  $("#btn13").click(function () {
+    console.log("here5");
+  });
+  $("#btn14").click(function () {
+    console.log("here6");
+  });
+  $("#btn15").click(function () {
+    console.log("here7");
+  });
+  $("#btn16").click(function () {
+    console.log("here8");
+  });
+  $("#btn17").click(function () {
+    console.log("here9");
+  });
+});
