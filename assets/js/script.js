@@ -18,13 +18,14 @@ var button6 = $("#btn14");
 var button7 = $("#btn15");
 var button8 = $("#btn16");
 var button9 = $("#btn17");
+var value1 = $("#val1");
 
 // time variables
-var early = "080706050403020100";
-var late = "181920212223";
+var early = "-08-07-06-05-04-03-02-01-00";
+var late = "-18-19-20-21-22-23";
 // display current date
 function currentDay() {
-  var today = moment().format("dddd[,] MMMM YYYY");
+  var today = moment().format("dddd[,] MMMM Do");
   currentDayEl.text(today);
 }
 
@@ -38,7 +39,7 @@ function currentHour() {
 function checkHour() {
   var hourNow = currentHour();
   var hourCheck = hourNow.slice(0, 2);
-  if (hourCheck === timeslot2.attr("id")) {
+  if (hourCheck === timeslot1.attr("id")) {
     timeslot1.addClass("present");
   } else if (hourCheck === timeslot2.attr("id")) {
     timeslot2.addClass("present");
@@ -56,7 +57,7 @@ function checkHour() {
     timeslot8.addClass("present");
   } else if (hourCheck === timeslot9.attr("id")) {
     timeslot9.addClass("present");
-  } else if (late.includes(hourCheck)) {
+  } else if (late.includes(`-${hourCheck}`)) {
     timeslot1.addClass("past");
     timeslot2.addClass("past");
     timeslot3.addClass("past");
@@ -66,7 +67,7 @@ function checkHour() {
     timeslot7.addClass("past");
     timeslot8.addClass("past");
     timeslot9.addClass("past");
-  } else if (early.includes(hourCheck)) {
+  } else if (early.includes(`-${hourCheck}`)) {
     timeslot1.addClass("future");
     timeslot2.addClass("future");
     timeslot3.addClass("future");
@@ -84,33 +85,53 @@ function sendData() {
   button1.click(console.log("here"));
 }
 // sendData();
+$(document).ready(function () {
+  timeslot1.val(JSON.parse(localStorage.getItem("timeslotText1")));
+  timeslot2.val(JSON.parse(localStorage.getItem("timeslotText2")));
+  timeslot3.val(JSON.parse(localStorage.getItem("timeslotText3")));
+  timeslot4.val(JSON.parse(localStorage.getItem("timeslotText4")));
+  timeslot5.val(JSON.parse(localStorage.getItem("timeslotText5")));
+  timeslot6.val(JSON.parse(localStorage.getItem("timeslotText6")));
+  timeslot7.val(JSON.parse(localStorage.getItem("timeslotText7")));
+  timeslot8.val(JSON.parse(localStorage.getItem("timeslotText8")));
+  timeslot9.val(JSON.parse(localStorage.getItem("timeslotText9")));
+});
 
 $(document).ready(function () {
   $("#btn9").click(function () {
-    console.log("here");
+    var timeslot1Text = timeslot1.val();
+    localStorage.setItem("timeslotText1", JSON.stringify(timeslot1Text));
   });
   $("#btn10").click(function () {
-    console.log("here2");
+    var timeslot2Text = timeslot2.val();
+    localStorage.setItem("timeslotText2", JSON.stringify(timeslot2Text));
   });
   $("#btn11").click(function () {
-    console.log("here3");
+    var timeslot3Text = timeslot3.val();
+    localStorage.setItem("timeslotText3", JSON.stringify(timeslot3Text));
   });
   $("#btn12").click(function () {
-    console.log("here4");
+    var timeslot4Text = timeslot4.val();
+    localStorage.setItem("timeslotText4", JSON.stringify(timeslot4Text));
   });
   $("#btn13").click(function () {
-    console.log("here5");
+    var timeslot5Text = timeslot5.val();
+    localStorage.setItem("timeslotText5", JSON.stringify(timeslot5Text));
   });
   $("#btn14").click(function () {
-    console.log("here6");
+    var timeslot6Text = timeslot6.val();
+    localStorage.setItem("timeslotText6", JSON.stringify(timeslot6Text));
   });
   $("#btn15").click(function () {
-    console.log("here7");
+    var timeslot7Text = timeslot7.val();
+    localStorage.setItem("timeslotText7", JSON.stringify(timeslot7Text));
   });
   $("#btn16").click(function () {
-    console.log("here8");
+    var timeslot8Text = timeslot8.val();
+    localStorage.setItem("timeslotText8", JSON.stringify(timeslot8Text));
   });
   $("#btn17").click(function () {
-    console.log("here9");
+    var timeslot9Text = timeslot9.val();
+    localStorage.setItem("timeslotText9", JSON.stringify(timeslot9Text));
   });
 });
